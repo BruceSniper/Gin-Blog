@@ -17,7 +17,7 @@ type AppSettingS struct {
 	LogFileExt      string
 }
 
-type DatebaseSettingS struct {
+type DatabaseSettingS struct {
 	DBType       string
 	UserName     string
 	Password     string
