@@ -1,0 +1,2 @@
+2020/07/27 18:12:31 {"callers":["D:/codes/go-programming-tour-book/blog-service/main.go: 27 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1595844751827028700}
+2020/07/27 18:14:42 {"callers":["D:/codes/go-programming-tour-book/blog-service/main.go: 27 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1595844882532465500}
