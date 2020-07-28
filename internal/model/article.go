@@ -1,5 +1,7 @@
 package model
 
+import "github.com/go-programming-tour-book/blog-service/pkg/app"
+
 type Article struct {
 	*Model
 	Tittle        string `json:"tittle"`
@@ -11,4 +13,9 @@ type Article struct {
 
 func (a Article) TableName() string {
 	return "blog_article"
+}
+
+type ArticleSwagger struct {
+	List  []*Article
+	Pager *app.Pager
 }

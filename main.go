@@ -30,6 +30,10 @@ func init() { //会在main之前运行
 	}
 }
 
+// @title Gin博客系统
+// @version 1.0
+// @description Go can change everything!
+// @termsOfService https://github.com/BruceSniper/Gin-Blog
 func main() {
 	gin.SetMode(global.ServerSetting.RunMode)
 	router := routers.NewRouter()
