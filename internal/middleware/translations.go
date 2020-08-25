@@ -6,8 +6,8 @@ import (
 	"github.com/go-playground/locales/en"
 	"github.com/go-playground/locales/zh"
 	"github.com/go-playground/locales/zh_Hant_TW"
-	ut "github.com/go-playground/universal-translator"
-	"github.com/go-playground/validator/v10"
+	"github.com/go-playground/universal-translator"
+	validator "github.com/go-playground/validator/v10"
 	en_translations "github.com/go-playground/validator/v10/translations/en"
 	zh_translations "github.com/go-playground/validator/v10/translations/zh"
 )
@@ -15,7 +15,7 @@ import (
 func Translations() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		uni := ut.New(en.New(), zh.New(), zh_Hant_TW.New())
-		locale := c.GetHeader("locale") //通过GetHeader方法获取约定的header参数locale
+		locale := c.GetHeader("locale")
 		trans, _ := uni.GetTranslator(locale)
 		v, ok := binding.Validator.Engine().(*validator.Validate)
 		if ok {
@@ -32,6 +32,7 @@ func Translations() gin.HandlerFunc {
 			}
 			c.Set("trans", trans)
 		}
+
 		c.Next()
 	}
 }

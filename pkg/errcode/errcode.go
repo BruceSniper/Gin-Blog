@@ -5,13 +5,16 @@ import (
 	"net/http"
 )
 
-type Error struct { //表示错误的响应结果
-	code    int      `json:"code"`
-	msg     string   `json:"msg"`
+type Error struct {
+	// 错误码
+	code int `json:"code"`
+	// 错误消息
+	msg string `json:"msg"`
+	// 详细信息
 	details []string `json:"details"`
 }
 
-var codes = map[int]string{} //将codes作为全局错误码的存储载体
+var codes = map[int]string{}
 
 func NewError(code int, msg string) *Error {
 	if _, ok := codes[code]; ok {
@@ -22,7 +25,7 @@ func NewError(code int, msg string) *Error {
 }
 
 func (e *Error) Error() string {
-	return fmt.Sprintf("错误码： %d，错误信息：%s", e.Code(), e.Msg())
+	return fmt.Sprintf("错误码：%d, 错误信息:：%s", e.Code(), e.Msg())
 }
 
 func (e *Error) Code() int {
@@ -42,34 +45,34 @@ func (e *Error) Details() []string {
 }
 
 func (e *Error) WithDetails(details ...string) *Error {
-	e.details = []string{}
+	newError := *e
+	newError.details = []string{}
 	for _, d := range details {
-		e.details = append(e.details, d)
+		newError.details = append(newError.details, d)
 	}
-	return e
+
+	return &newError
 }
 
 func (e *Error) StatusCode() int {
 	switch e.Code() {
 	case Success.Code():
-		return http.StatusOK //200
+		return http.StatusOK
 	case ServerError.Code():
-		return http.StatusInternalServerError //500
+		return http.StatusInternalServerError
 	case InvalidParams.Code():
-		return http.StatusBadRequest //400
-	case NotFound.Code():
-		return http.StatusNotFound //404
-	case UnauthorizedAuthNotExits.Code():
+		return http.StatusBadRequest
+	case UnauthorizedAuthNotExist.Code():
 		fallthrough
 	case UnauthorizedTokenError.Code():
 		fallthrough
 	case UnauthorizedTokenGenerate.Code():
 		fallthrough
 	case UnauthorizedTokenTimeout.Code():
-		return http.StatusUnauthorized //401
+		return http.StatusUnauthorized
 	case TooManyRequests.Code():
-		return http.StatusTooManyRequests //429
+		return http.StatusTooManyRequests
 	}
 
-	return http.StatusInternalServerError //500
+	return http.StatusInternalServerError
 }

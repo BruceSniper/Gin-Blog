@@ -11,6 +11,7 @@ func GetPage(c *gin.Context) int {
 	if page <= 0 {
 		return 1
 	}
+
 	return page
 }
 
@@ -22,6 +23,7 @@ func GetPageSize(c *gin.Context) int {
 	if pageSize > global.AppSetting.MaxPageSize {
 		return global.AppSetting.MaxPageSize
 	}
+
 	return pageSize
 }
 
@@ -30,5 +32,6 @@ func GetPageOffset(page, pageSize int) int {
 	if page > 0 {
 		result = (page - 1) * pageSize
 	}
+
 	return result
 }
