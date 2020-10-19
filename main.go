@@ -1,12 +1,12 @@
 package main
 
 import (
+	"blog-service/global"
+	"blog-service/internal/model"
+	"blog-service/internal/routers"
+	"blog-service/pkg/logger"
+	"blog-service/pkg/setting"
 	"github.com/gin-gonic/gin"
-	"github.com/go-programming-tour-book/blog-service/global"
-	"github.com/go-programming-tour-book/blog-service/internal/model"
-	"github.com/go-programming-tour-book/blog-service/internal/routers"
-	"github.com/go-programming-tour-book/blog-service/pkg/logger"
-	"github.com/go-programming-tour-book/blog-service/pkg/setting"
 	"gopkg.in/natefinch/lumberjack.v2"
 	"log"
 	"net/http"

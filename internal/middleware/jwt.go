@@ -3,9 +3,9 @@ package middleware
 import (
 	"github.com/dgrijalva/jwt-go"
 
+	"blog-service/pkg/app"
+	"blog-service/pkg/errcode"
 	"github.com/gin-gonic/gin"
-	"github.com/go-programming-tour-book/blog-service/pkg/app"
-	"github.com/go-programming-tour-book/blog-service/pkg/errcode"
 )
 
 func JWT() gin.HandlerFunc {

@@ -1,4 +1,4 @@
-module github.com/go-programming-tour-book/blog-service
+module blog-service
 
 go 1.14
 

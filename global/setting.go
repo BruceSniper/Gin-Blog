@@ -1,8 +1,8 @@
 package global
 
 import (
-	"github.com/go-programming-tour-book/blog-service/pkg/logger"
-	"github.com/go-programming-tour-book/blog-service/pkg/setting"
+	"blog-service/pkg/logger"
+	"blog-service/pkg/setting"
 )
 
 //包全局变量

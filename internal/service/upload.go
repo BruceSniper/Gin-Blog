@@ -5,9 +5,9 @@ import (
 	"mime/multipart"
 	"os"
 
-	"github.com/go-programming-tour-book/blog-service/global"
+	"blog-service/global"
 
-	"github.com/go-programming-tour-book/blog-service/pkg/upload"
+	"blog-service/pkg/upload"
 )
 
 type FileInfo struct {

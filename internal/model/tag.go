@@ -1,7 +1,7 @@
 package model
 
 import (
-	"github.com/go-programming-tour-book/blog-service/pkg/app"
+	"blog-service/pkg/app"
 	"github.com/jinzhu/gorm"
 )
 
